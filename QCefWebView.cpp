@@ -3,6 +3,8 @@
 #include "CefBrowserHandlerImp.h"
 #include "QBrowserWindow.h"
 
+#include <QtWidgets/QApplication>
+
 #define DEFAULT_URL "http://www.baidu.com"
 
 
@@ -169,8 +171,8 @@ bool QCefWebView::CreateBrowser(const QSize& size)
     RECT rect;
     rect.left = 0;
     rect.top = 0;
-    rect.right = this->width();
-    rect.bottom = this->height();
+    rect.right = this->width()*qApp->devicePixelRatio();
+    rect.bottom = this->height()*qApp->devicePixelRatio();
     info.SetAsChild(hWnd, rect);
 #endif
 
@@ -203,7 +205,8 @@ void QCefWebView::ResizeBrowser(const QSize& size)
 		if (windowHandle) {
 #ifdef _WIN32
 			auto hdwp = BeginDeferWindowPos(1);
-			hdwp = DeferWindowPos(hdwp, windowHandle, nullptr, 0, 0, size.width(), size.height(), SWP_NOZORDER);
+			hdwp = DeferWindowPos(hdwp, windowHandle, nullptr, 0, 0, 
+				qApp->devicePixelRatio()*size.width(), qApp->devicePixelRatio()*size.height(), SWP_NOZORDER);
 			EndDeferWindowPos(hdwp);
 #endif
 		}

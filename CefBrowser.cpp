@@ -12,6 +12,7 @@
 
 int QCefProcessStart()
 {
+	CefEnableHighDPISupport();
 	// Provide CEF with command-line arguments.
 	CefMainArgs main_args;
 
