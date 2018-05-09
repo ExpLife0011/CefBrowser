@@ -8,7 +8,7 @@
 #include <QtWidgets/QPushButton>
 #include "QCefWebView.h"
 
-class QBrowserWindow :public QMainWindow
+class EXPORT QBrowserWindow :public QMainWindow
 {
 	Q_OBJECT
 
@@ -25,7 +25,7 @@ private slots:
 	void onTitleChanged(const QString& title);
 
 protected:
-	virtual void closeEvent(QCloseEvent* event) OVERRIDE;
+	virtual void closeEvent(QCloseEvent* event);
 
 private:
 	QCefWebView* webView;

@@ -3,9 +3,23 @@
 
 #include <QtWidgets/QWidget>
 #include <QUrl>
-#include "CefBrowserHandlerImp.h"
 
-class QCefWebView :public QWidget
+//#define BUILD_LIB
+//#define QT_BUILD_CORE_LIB
+
+#ifdef BUILD_STATIC
+#define EXPORT
+#else
+#if defined(BUILD_LIB)
+#  undef EXPORT
+#  define EXPORT Q_DECL_EXPORT
+#else
+#  undef EXPORT
+#  define EXPORT Q_DECL_IMPORT //only for vc?
+#endif
+#endif //BUILD_QTAV_STATIC
+
+class EXPORT QCefWebView :public QWidget
 {
 	Q_OBJECT
 
@@ -21,6 +35,8 @@ public:
 	~QCefWebView();
 
 	void closeBrowser(QCloseEvent* event);
+
+	bool CreateBrowser(const QSize & size);
 
 public slots:
 	void loadUrl(const QString& url);
@@ -45,13 +61,12 @@ protected:
 	virtual void resizeEvent(QResizeEvent* event) override;
 
 private:
-	bool CreateBrowser(const QSize & size);
-	CefRefPtr<CefBrowser> GetBrowser() const;
+	//CefRefPtr<CefBrowser> GetBrowser() const;
 	void ResizeBrowser(const QSize & size);
 	bool BrowserLoadUrl(const QUrl & url);
 
 private:
-	static CefRefPtr<CefBrowserHandlerImp> s_browserHandler;
+
 
 	BrowserState _browserState;
 	bool _needResize;

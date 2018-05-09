@@ -39,7 +39,7 @@
     <ClCompile Include="QCefWebView.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="main.cpp">
+    <ClCompile Include="CefBrowser.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

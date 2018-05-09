@@ -1,10 +1,21 @@
 #include <QCloseEvent>
 #include <QDebug>
+#include "CefBrowserHandlerImp.h"
 #include "QBrowserWindow.h"
 
 #define DEFAULT_URL "http://www.baidu.com"
 
-CefRefPtr<CefBrowserHandlerImp> QCefWebView::s_browserHandler = NULL;
+
+static CefRefPtr<CefBrowserHandlerImp> s_browserHandler = NULL;
+
+CefRefPtr<CefBrowser> GetBrowser()
+{
+	CefRefPtr<CefBrowser> browser = nullptr;
+	if (s_browserHandler.get()) {
+		browser = s_browserHandler->GetBrowser();
+	}
+	return browser;
+}
 
 QCefWebView::QCefWebView(QWidget *parent) :
 	QWidget(parent),
@@ -183,14 +194,6 @@ bool QCefWebView::CreateBrowser(const QSize& size)
 	return true;
 }
 
-CefRefPtr<CefBrowser> QCefWebView::GetBrowser() const
-{
-	CefRefPtr<CefBrowser> browser = nullptr;
-	if (s_browserHandler.get()) {
-		browser = s_browserHandler->GetBrowser();
-	}
-	return browser;
-}
 
 void QCefWebView::ResizeBrowser(const QSize& size)
 {

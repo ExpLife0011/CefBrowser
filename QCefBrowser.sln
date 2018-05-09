@@ -5,6 +5,11 @@ VisualStudioVersion = 15.0.27703.1
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "QCefBrowser", "QCefBrowser.vcxproj", "{01168C72-EAEF-36CF-9569-72E34F5C33C4}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "QCefBrowser_test", "QCefBrowser_test.vcxproj", "{B5A2F753-9BBE-4623-927D-C67FC7122599}"
+	ProjectSection(ProjectDependencies) = postProject
+		{01168C72-EAEF-36CF-9569-72E34F5C33C4} = {01168C72-EAEF-36CF-9569-72E34F5C33C4}
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x86 = Debug|x86
@@ -15,6 +20,10 @@ Global
 		{01168C72-EAEF-36CF-9569-72E34F5C33C4}.Debug|x86.Build.0 = Debug|Win32
 		{01168C72-EAEF-36CF-9569-72E34F5C33C4}.Release|x86.ActiveCfg = Release|Win32
 		{01168C72-EAEF-36CF-9569-72E34F5C33C4}.Release|x86.Build.0 = Release|Win32
+		{B5A2F753-9BBE-4623-927D-C67FC7122599}.Debug|x86.ActiveCfg = Debug|Win32
+		{B5A2F753-9BBE-4623-927D-C67FC7122599}.Debug|x86.Build.0 = Debug|Win32
+		{B5A2F753-9BBE-4623-927D-C67FC7122599}.Release|x86.ActiveCfg = Release|Win32
+		{B5A2F753-9BBE-4623-927D-C67FC7122599}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
