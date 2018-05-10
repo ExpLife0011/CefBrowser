@@ -24,6 +24,7 @@ HEADERS += CefAppImp.h \
            CefBrowserHandlerImp.h \
            QBrowserWindow.h \
            QCefWebView.h \
+           CefBrowser.h \
            include/cef_accessibility_handler.h \
            include/cef_app.h \
            include/cef_auth_callback.h \
@@ -367,6 +368,7 @@ HEADERS += CefAppImp.h \
            /include/views/cef_window_delegate.h
 SOURCES += CefAppImp.cpp \
            CefBrowserHandlerImp.cpp \
+           CefBrowser.cpp \
            main.cpp \
            QBrowserWindow.cpp \
            QCefWebView.cpp
