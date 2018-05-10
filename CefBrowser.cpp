@@ -30,7 +30,9 @@ int QCefProcessStart()
 	// Specify CEF global settings here.
 	CefSettings settings;
 	settings.no_sandbox = true;
-	//settings.multi_threaded_message_loop = true;
+#ifdef Q_OS_WIN
+	settings.multi_threaded_message_loop = true;
+#endif
 
 	// CefAppImp implements application-level callbacks for the browser process.
 	// It will create the first browser instance in OnContextInitialized() after
@@ -43,7 +45,9 @@ int QCefProcessStart()
 
 void QCefMessageLoop()
 {
+#ifndef Q_OS_WIN
 	CefRunMessageLoop();
+#endif
 }
 
 

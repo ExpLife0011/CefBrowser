@@ -13,7 +13,7 @@ QBrowserWindow::QBrowserWindow(QMainWindow *parent) :
 	webView(NULL),
 	urlEdit(NULL)
 {
-	//resize(1280, 720);
+	resize(1280, 720);
 	setAttribute(Qt::WA_NativeWindow, true);
 	setAttribute(Qt::WA_DontCreateNativeAncestors, true);
 	setFocusPolicy(Qt::FocusPolicy::StrongFocus);
